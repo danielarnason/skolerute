@@ -4,6 +4,5 @@
     <copydir fromdir="[module:skolerute]/dist" todir="[cbinfo.wwwroot.dir]/modules/skolerute" />
 
     <param name="module.skolerute.skole_ds">skoler_skolevej_modul</param>
-    <param name="module.skolerute.spsroute_url">https://test-webgis.slagelse.dk/spsroute/api/1.0/route</param>
     
 </deploy>

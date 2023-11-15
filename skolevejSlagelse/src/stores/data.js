@@ -13,12 +13,12 @@ export const useDataStore = defineStore('data', () => {
 
     const selectedSkoleCoordinates = computed(() => selectedSkole.value.latLong)
     const selectedAdressCoordinates = computed(() => `${selectedAdress.value.data.x},${selectedAdress.value.data.y}`)
-    const routeGeometry = computed(() => route.value?.wkt)
+    const routeGeometry = computed(() => route.value?.shape_wkt)
     const routeDistance = computed(() => {
-        if (route.value?.travelDistanceInMeter < 1000) {
-            return `${route.value?.travelDistanceInMeter} m`
+        if (route.value?.distance < 1000) {
+            return `${route.value?.distance} m`
         } else {
-            const km = route.value?.travelDistanceInMeter / 1000
+            const km = route.value?.distance / 1000
             return `${km.toFixed(1)} km`
         }
     })

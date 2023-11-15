@@ -14,12 +14,19 @@ import SkoleSelect from './SkoleSelect.vue';
 const store = useDataStore()
 
 const handleClick = async () => {
-    const url = `${store.minimapObj.getSession().getParam('module.skolerute.spsroute_url')}?profile=foot&from=${store.selectedAdressCoordinates}&to=${store.selectedSkoleCoordinates}&srs=epsg:25832&lang=da`
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            store.route = data
-        })
+    const pageRequest = store.minimapObj.getSession().createPageRequest('afstand-calculate-route')
+    pageRequest.call({
+        frompoint: `POINT(${store.selectedAdressCoordinates.split(',')[0]} ${store.selectedAdressCoordinates.split(',')[1]})`,
+        topoint: `POINT(${store.selectedSkoleCoordinates.split(',')[0]} ${store.selectedSkoleCoordinates.split(',')[1]})`,
+        datasource: 'afstand_route_service',
+        command: 'calculate-route-point-to-point',
+        routeprofile: 'foot',
+        srs: '25832',
+        sessionid: pageRequest.sessionId
+    }, response => {
+        store.route = response.row[0].row[0]
+    })
+    
 }
 </script>
 
