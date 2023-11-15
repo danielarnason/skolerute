@@ -1,7 +1,7 @@
 <deploy>
     <description>Modul til beregning af ruter til og fra skole</description>
     <version>2023.01.00</version>
-    <copydir fromdir="[module:skolerute]/dist" todir="[cbinfo.wwwroot.dir]/modules/skolerute" />
+    <copydir fromdir="[module:skolerute.dir]/dist" todir="[cbinfo.wwwroot.dir]/modules/skolerute" />
 
     <param name="module.skolerute.skole_ds">skoler_skolevej_modul</param>
     
