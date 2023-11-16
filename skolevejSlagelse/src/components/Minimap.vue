@@ -35,6 +35,7 @@ watch(routeGeometry, () => {
     })
     const routeLayer = new ol.layer.Vector({
         name: 'routeLayer',
+        zIndex: 98,
         source: source,
         style: lineStyle
     })
@@ -56,6 +57,7 @@ const addDestination = (coordinates, type) => {
     })
     const layer = new ol.layer.Vector({
         name: `${type}Layer`,
+        zIndex: 99,
         source: source,
         style: new ol.style.Style({
             image: new ol.style.Icon({
@@ -97,7 +99,6 @@ const onMapReady = mm => {
 onMounted(() => {
     MiniMap.createMiniMap({
         mapDiv: 'minimapbody',
-        minimapId: 'ad38978f-d881-4291-b45e-8e6d68cedbb4',
         initCallback: onMapReady
     })
 })
@@ -108,7 +109,5 @@ onMounted(() => {
 #minimapbody {
     height: 100%;
     width: 100%;
-    /* height: 500px;
-    width: 500px; */
 }
 </style>
