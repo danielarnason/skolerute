@@ -2,12 +2,14 @@
 
 Det her repo indeholder et modul til Spatial Suite, samt kildekoden for det, som er skrevet i Vue.  
 
-Folderen **_skolevejVue_** indeholder kildekoden til selve modulet, som ligger i folderen **_skolerute_**
+Folderen **_skolevejVue_** indeholder kildekoden til selve modulet, som ligger i folderen **_./skolerute/dist_**
 
 Modulet er baseret på MiniMap API'et fra Spatial Suite og OpenLayers. 
 
+Marvin Poulsen fra Lolland kommune har tidligere lavet et lignende modul, som det her modul er blevet inspireret af. Det kan findes [her](https://github.com/MarvinPoulsen/skolevej) 🎉
+
 ## Dependency
-Modulet er afhænigt af, at SPS route er installeret og i brug, med en token. Det vil **ikke** virke, hvis du har en lokal installation af SPS route. 
+Modulet er afhænigt af SPS route servicen. Det vil **ikke** virke, hvis du har en lokal installation af SPS route. Til at bruge SPS route servicen skal man få en token fra Sweco. Man kan læse mere om det på deres brugerforum [her](https://cbkort.brugerklub.info/forum/viewtopic.php?t=1414).
 
 ## Installation  
 
