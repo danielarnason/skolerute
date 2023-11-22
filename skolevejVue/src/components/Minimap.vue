@@ -92,7 +92,7 @@ const onMapReady = mm => {
                 latLong,
             };
         });
-        store.skoleData = data
+        store.skoleData = data.sort((a, b) => (a.skole > b.skole) ? 1 : ((b.skole > a.skole) ? -1 : 0))
     })
 }
 
