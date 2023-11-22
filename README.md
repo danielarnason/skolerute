@@ -29,7 +29,7 @@ Modulet er afhænigt af SPS route servicen. Det vil **ikke** virke, hvis du har 
    |Kolonne|type|
    |-------|-------|
    |skole|string|
-   |vejanavn|string|
+   |vejnavn|string|
    |husnummer|string|
    |postnummer|number|
    |by|string|
