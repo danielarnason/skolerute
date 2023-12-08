@@ -14,7 +14,7 @@ const { routeGeometry } = storeToRefs(store)
 watch(routeGeometry, () => {
 
     store.minimapObj.getMapControl().map.getLayers().getArray().slice().forEach(layer => {
-        if (layer && (layer.get('name') === 'routeLayer' || layer.get('name') === 'schoolLayer' || layer.get('name') === 'homeLayer')) {
+        if (layer && (layer.get('name') === 'routeLayer' || layer.get('name') === 'schoolLayer' || layer.get('name') === 'homeLayer' || layer.get('name') === 'distriktLayer')) {
             store.minimapObj.getMapControl().map.removeLayer(layer)
         }
     })
@@ -46,7 +46,28 @@ watch(routeGeometry, () => {
     })
     addDestination(store.selectedAdressCoordinates, 'home')
     addDestination(store.selectedSkoleCoordinates, 'school')
+    addSkoledistrikt(store.selectedSkoleDistrikt.shape_wkt.wkt)
 })
+
+const addSkoledistrikt = wktGeom => {
+    const wktFormat = new ol.format.WKT()
+    const skoledistriktFeature = wktFormat.readFeature(wktGeom)
+    const source = new ol.source.Vector({
+        features: [skoledistriktFeature]
+    })
+    const distriktLayer = new ol.layer.Vector({
+        name: 'distriktLayer',
+        zIndex: 98,
+        source: source,
+        style: new ol.style.Style({
+            stroke: new ol.style.Stroke({
+                color: 'rgba(20,63,204,0.4)',
+                width: 2
+            })
+        })
+    })
+    store.minimapObj.getMapControl().map.addLayer(distriktLayer)
+}
 
 const addDestination = (coordinates, type) => {
     const feature = new ol.Feature({
