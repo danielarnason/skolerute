@@ -23,7 +23,7 @@ Modulet er afhænigt af SPS route servicen. Det vil **ikke** virke, hvis du har 
 2. Installer modulet ved at tilføje følgende til relevante modulfiler:  
    `<module name="skolerute" dir="custom/skolerute/skolerute" permissionlevel="public" />`  
 
-3. Ret parameter i deploy.xml filen (./skolerute/skolerute/deploy.xml).  
+3. Ret parametre i deploy.xml filen (./skolerute/skolerute/deploy.xml).  
    Parameteren _module.skolerute.skole\_ds_ angiver navnet på den datasource, som indeholder de skoler, man skal kunne vælge i mellem.  
    Datasourcen skal pege på en tabel i din database, som har den her struktur:  
    |Kolonne|type|
@@ -35,7 +35,15 @@ Modulet er afhænigt af SPS route servicen. Det vil **ikke** virke, hvis du har 
    |by|string|
    |shape_wkt|geometry|  
 
-   **TIP!** Lav et view i databasen, som er baseret på den skoletabel, som bliver vedligeholdt jævnligt, og brug det i din datasource. På den måde har du altid opdateret skoleliste. I Slagelse har vi brugt den her SQL til at generere tabellen, men det kan gøres på mange måder;  
+   Parameteren _module.skolerute.skoledistrikter_ds_ angiver navnet på den datasource, som indeholder skoledistrikter. Datsourcen skal pege på en tabel i din database, som har den her struktur:
+   |Kolonne|Type|
+   |-------|------|
+   |udd_dist_1|string
+   |shape_wkt|geometry|
+   
+   kolonnenavnet _udd_dist_1_ kommer fra GeoFA.
+
+   **TIP!** Lav et view i databasen, som er baseret på de tabeller, som bliver vedligeholdt jævnligt, og brug det i din datasource. På den måde har du altid opdaterede tabeller. I Slagelse har vi brugt den her SQL til at generere skoletabellen, men det kan gøres på mange måder;  
    ```sql
    CREATE OR REPLACE VIEW temaplaner.skoler_skolevej_modul
       AS SELECT skoler.objectid::character varying AS id,

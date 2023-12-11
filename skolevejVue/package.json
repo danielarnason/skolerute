@@ -1,7 +1,7 @@
 {
   "name": "skolevejvue",
   "private": true,
-  "version": "2023.01.01",
+  "version": "2023.01.02",
   "type": "module",
   "scripts": {
     "dev": "vite",

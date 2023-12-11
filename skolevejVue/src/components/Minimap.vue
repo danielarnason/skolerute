@@ -57,12 +57,12 @@ const addSkoledistrikt = wktGeom => {
     })
     const distriktLayer = new ol.layer.Vector({
         name: 'distriktLayer',
-        zIndex: 98,
+        zIndex: 97,
         source: source,
         style: new ol.style.Style({
             stroke: new ol.style.Stroke({
-                color: 'rgba(20,63,204,0.4)',
-                width: 2
+                color: 'rgba(190,49,39,0.8)',
+                width: 3
             })
         })
     })
