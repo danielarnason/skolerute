@@ -11,7 +11,7 @@
         </div>
         <div>
             <img src="/skoledistrikt.svg" alt="Skoledstrikt">
-            <p>Skoledstrikt: {{ store.selectedSkoleDistrikt.udd_dist_1 }}</p>
+            <p>Skoledistrikt: {{ store.selectedSkoleDistrikt.udd_dist_1 }}</p>
         </div>
     </div>
 </template>
