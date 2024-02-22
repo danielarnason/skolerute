@@ -18,18 +18,16 @@ const handleChange = () => {
 
 onMounted(() => {
     const inputEl = document.getElementById('dawa-autocomplete-input')
-    setTimeout(() => {
-      const component = dawa.dawaAutocomplete(inputEl, {
-          select: selected => {
-              store.selectedAdress = selected
-          },
-          adgangsadresserOnly: true,
-          params: {
-              kommunekode: store.kommunenr,
-              srid: '25832'
-          }
-      })
-    }, 3000);
+    const component = dawa.dawaAutocomplete(inputEl, {
+        select: selected => {
+            store.selectedAdress = selected
+        },
+        adgangsadresserOnly: true,
+        params: {
+            kommunekode: 330,
+            srid: '25832'
+        }
+    })
 })
 
 </script>

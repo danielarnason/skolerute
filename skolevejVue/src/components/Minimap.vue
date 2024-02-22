@@ -94,8 +94,6 @@ const addDestination = (coordinates, type) => {
 const onMapReady = mm => {
     store.minimapObj = mm
     const ses = mm.getSession()
-
-    store.kommunenr = ses.getParam('config.kommunenr.trecifre')
     
     const ds = ses.getDatasource(ses.getParam('module.skolerute.skole_ds'))
     ds.execute({command: 'read'}, rows => {
@@ -122,6 +120,7 @@ onMounted(() => {
         mapDiv: 'minimapbody',
         initCallback: onMapReady
     })
+    
 })
 
 </script>

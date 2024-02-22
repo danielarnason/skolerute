@@ -4,7 +4,6 @@ import { computed, ref } from "vue";
 export const useDataStore = defineStore('data', () => {
     // Data som skal flyttes til SPS params
     const minimapObj = ref()
-    const kommunenr = ref()
     
     const skoleData = ref()
     const selectedAdress = ref()
@@ -29,5 +28,5 @@ export const useDataStore = defineStore('data', () => {
         }
     })
 
-    return { skoleData, kommunenr, selectedAdress, selectedSkole, selectedSkoleCoordinates, selectedAdressCoordinates, route, routeGeometry, routeDistance, minimapObj, selectedSkoleDistrikt }
+    return { skoleData, selectedAdress, selectedSkole, selectedSkoleCoordinates, selectedAdressCoordinates, route, routeGeometry, routeDistance, minimapObj, selectedSkoleDistrikt }
 })
